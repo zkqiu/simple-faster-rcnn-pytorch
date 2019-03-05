@@ -175,8 +175,8 @@ def _enumerate_shifted_anchor_torch(anchor_base, feat_stride, height, width):
     import torch as t
     shift_y = t.arange(0, height * feat_stride, feat_stride)
     shift_x = t.arange(0, width * feat_stride, feat_stride)
-    shift_x, shift_y = xp.meshgrid(shift_x, shift_y)
-    shift = xp.stack((shift_y.ravel(), shift_x.ravel(),
+    shift_x, shift_y = np.meshgrid(shift_x, shift_y)
+    shift = np.stack((shift_y.ravel(), shift_x.ravel(),
                       shift_y.ravel(), shift_x.ravel()), axis=1)
 
     A = anchor_base.shape[0]
